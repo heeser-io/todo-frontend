@@ -5,52 +5,42 @@
       color="primary"
       dark
     >
-      <h2>Todo App</h2>
+      <h2>Komponenten Test</h2>
     </v-app-bar>
-
     <v-main>
-      <p>
-        {{todos}}
-      </p>
-      <p>
-        {{users}}
-      </p>
+      <v-container fluid>
+        <v-row align="center">
+          <v-col cols="12" sm="6">
+            <h2>Tree</h2>
+            <v-treeview :items="files" />
+
+            <h2>Select</h2>
+            <v-select :items="todos" />
+            
+            <h2>Slider</h2>
+            <v-slider min="0" max="100" v-model="sliderValue" />
+            <p> Du hast {{sliderValue}} ausgewählt </p>
+          </v-col>
+        </v-row>
+      </v-container>
     </v-main>
   </v-app>
 </template>
 
 <script>
-import axios from 'axios'
-
-let apiUrl = 'http://localhost:8888'
+import files from './files.json'
+import todos from './todos.json'
 
 export default {
   name: 'App',
   data: () => ({
-    users: [],
-    todos: []
+    files,
+    todos,
+    sliderValue: 25
   }),
   created () {
-    this.getUsers()
-    this.getTodos()
   },
   methods: {
-    async getUsers () {
-      try {
-        const users = await axios.get(`${apiUrl}/users`)
-        this.users = users.data
-      } catch (e) {
-        console.log(e)
-      }
-    },
-    async getTodos () {
-      try {
-        const todos = await axios.get(`${apiUrl}/todos`)
-        this.todos = todos.data
-      } catch (e) {
-        console.log(e)
-      }
-    }
   }
 };
 </script>

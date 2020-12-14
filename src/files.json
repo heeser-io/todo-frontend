@@ -1,0 +1,23 @@
+[{
+  "id": 1,
+  "name": "Benutzer",
+  "children": [{
+    "id": 100,
+    "name": "Michael"
+  }, {
+    "id": 101,
+    "name": "Ralf"
+  }, {
+    "id": 102,
+    "name": "Yann"
+  }]
+}, {
+  "id": 2,
+  "name": "Bilder"
+}, {
+  "id": 3,
+  "name": "Programme"
+}, {
+  "id": 4,
+  "name": "Videos"
+}]
